@@ -61,7 +61,7 @@
     },
     "/restaurants/{id}": {
       "get": {
-        "description": "Gets the value for a park, according to the given id",
+        "description": "Gets the value for a restaurant, according to the given id",
         "parameters": [
           {
             "name": "id",
