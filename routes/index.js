@@ -5,7 +5,7 @@
 const routes = require("express").Router()
 const c = require("../controllers/index.js")
 
-routes.get('/', c.welcomeRoute)
+routes.get('/', c.getAllRoute)
 
 // get all of collection
 routes.get('/parks', c.getAllParksRoute)
@@ -20,12 +20,12 @@ routes.post('/post-park', c.postParkRoute)
 routes.post('/post-restaurant', c.postResaurantRoute)
 
 // put
-routes.put('/put-park/:id', c.welcomeRoute)
-routes.put('/put-restaurant/:id', c.welcomeRoute)
+routes.put('/put-park/:id', c.getAllRoute)
+routes.put('/put-restaurant/:id', c.getAllRoute)
 
 // delete
-routes.delete('/delete-park/:id', c.welcomeRoute)
-routes.delete('/delete-restaurant/:id', c.welcomeRoute)
+routes.delete('/delete-park/:id', c.getAllRoute)
+routes.delete('/delete-restaurant/:id', c.getAllRoute)
 
 // documentation
 // used code from https://www.npmjs.com/package/swagger-ui-express

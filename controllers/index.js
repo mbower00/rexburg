@@ -18,8 +18,19 @@ async function getClient() {
     }
 }
     
-const welcomeRoute = (req, res) => {
-    res.send("Welcome to the Rexburg API!")
+const getAllRoute = async (req, res) => {
+    const client = await getClient()
+
+    const cParks = client.db("rexburg").collection("parks").find({})
+    const cRestaurants = client.db("rexburg").collection("restaurants").find({})
+
+    const dataParks = await cParks.toArray()
+    const dataRestaurants = await cRestaurants.toArray()
+
+    const dataAll = dataParks.concat(dataRestaurants)
+
+    res.send(dataAll)
+    await client.close()
 }
 
 const getAllParksRoute = async (req, res) => {
@@ -87,7 +98,7 @@ const postResaurantRoute = async (req, res) => {
 }
 
 module.exports = {
-    welcomeRoute,
+    getAllRoute,
     getAllParksRoute,
     getAllRestaurantsRoute,
     getParkRoute,

@@ -13,7 +13,7 @@
   "paths": {
     "/": {
       "get": {
-        "description": "Welcomes the user to the API",
+        "description": "Gets the values for the parks and restaurants collections",
         "responses": {
           "200": {
             "description": "OK"
