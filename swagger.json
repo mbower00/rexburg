@@ -1,0 +1,205 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "rexburg.onrender.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "Welcomes the user to the API",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/parks": {
+      "get": {
+        "description": "Gets the values for the parks collection",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/restaurants": {
+      "get": {
+        "description": "Gets the values for the restaurants collection",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/parks/{id}": {
+      "get": {
+        "description": "Gets the value for a park, according to the given id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/restaurants/{id}": {
+      "get": {
+        "description": "Gets the value for a park, according to the given id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/post-park": {
+      "post": {
+        "description": "Posts a park to the parks collection",
+        "parameters": [{
+          "name":"body",
+          "in":"body",
+          "required": true,
+          "schema": {
+            "asdf":"asdf"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/post-restaurant": {
+      "post": {
+        "description": "Posts a restaurant to the restaurants collection",
+        "parameters": [ {
+          "name":"body",
+          "in":"body",
+          "required": true,
+          "schema": {
+            "asdf":"asdf"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/put-park/{id}": {
+      "put": {
+        "description": "Puts to a document (according to the given id) in the parks collection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name":"body",
+            "in":"body",
+            "required": true,
+            "schema": {
+              "asdf":"asdf"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/put-restaurant/{id}": {
+      "put": {
+        "description": "Puts to a document (according to the given id) in the restaurants collection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name":"body",
+            "in":"body",
+            "required": true,
+            "schema": {
+              "asdf":"asdf"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/delete-park/{id}": {
+      "delete": {
+        "description": "Deletes a document (according to the given id) in the parks collection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/delete-restaurant/{id}": {
+      "delete": {
+        "description": "Deletes a document (according to the given id) in the restaurants collection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
