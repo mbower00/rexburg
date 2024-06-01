@@ -97,6 +97,35 @@ const postResaurantRoute = async (req, res) => {
 
 }
 
+const putParkRoute = async (req, res) => {
+    const client = await getClient()
+    put = await client.db("rexburg").collection("parks").updateOne({_id: new m.ObjectId(req.params.id)}, {$set: req.body})
+
+    res.send(`modifiedCount: ${put.modifiedCount}`)
+}
+
+const putRestaurantRoute = async (req, res) => {
+    const client = await getClient()
+    put = await client.db("rexburg").collection("restaurants").updateOne({_id: new m.ObjectId(req.params.id)}, {$set: req.body})
+
+    res.send(`modifiedCount: ${put.modifiedCount}`)
+}
+
+const deleteParkRoute = async (req, res) => {
+    const client = await getClient()
+    del = await client.db("rexburg").collection("parks").deleteOne({_id: new m.ObjectId(req.params.id)})
+
+    res.send(`deletedCount: ${del.deletedCount}`)
+}
+
+const deleteRestaurantRoute = async (req, res) => {
+    const client = await getClient()
+    del = await client.db("rexburg").collection("restaurants").deleteOne({_id: new m.ObjectId(req.params.id)})
+
+    res.send(`deletedCount: ${del.deletedCount}`)
+}
+
+
 module.exports = {
     getAllRoute,
     getAllParksRoute,
@@ -104,5 +133,9 @@ module.exports = {
     getParkRoute,
     getRestaurantRoute,
     postParkRoute,
-    postResaurantRoute
+    postResaurantRoute,
+    putParkRoute,
+    putRestaurantRoute,
+    deleteParkRoute,
+    deleteRestaurantRoute,
 }

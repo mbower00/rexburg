@@ -20,12 +20,12 @@ routes.post('/post-park', c.postParkRoute)
 routes.post('/post-restaurant', c.postResaurantRoute)
 
 // put
-routes.put('/put-park/:id', c.getAllRoute)
-routes.put('/put-restaurant/:id', c.getAllRoute)
+routes.put('/put-park/:id', c.putParkRoute)
+routes.put('/put-restaurant/:id', c.putRestaurantRoute)
 
 // delete
-routes.delete('/delete-park/:id', c.getAllRoute)
-routes.delete('/delete-restaurant/:id', c.getAllRoute)
+routes.delete('/delete-park/:id', c.deleteParkRoute)
+routes.delete('/delete-restaurant/:id', c.deleteRestaurantRoute)
 
 // documentation
 // used code from https://www.npmjs.com/package/swagger-ui-express
