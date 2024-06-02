@@ -92,7 +92,7 @@ function validatePut(keysArray, data) {
         dataValues.push(data[item])
     })
 
-    let areValuesStrings = dataValues.length == keysArray.length
+    let areValuesStrings = dataValues.length == dataKeys.length
     dataValues.forEach((item) => {
         if (typeof item != 'string') {
             areValuesStrings = false
