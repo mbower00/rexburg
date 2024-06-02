@@ -3,6 +3,8 @@
 // used code from https://www.mongodb.com/developer/languages/javascript/node-crud-tutorial/
 // used code from https://stackoverflow.com/questions/34095126/express-router-id
 // used code from https://www.mongodb.com/docs/manual/reference/method/db.collection.find/
+// used code from https://www.youtube.com/watch?v=S0przpEKKGU
+// used code from https://blog.logrocket.com/handle-data-validation-node-js-validatorjs/
 
 const m = require('mongodb')
 
