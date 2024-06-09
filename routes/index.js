@@ -35,6 +35,8 @@ routes.use('/api-docs', su.serve)
 routes.get('/api-docs', su.setup(swag))
 
 // used code from https://www.youtube.com/watch?v=SBvmnHTQIPY
-routes.get('/google', c.authentication)
+passport = require('passport')
+routes.get('/google', passport.authenticate('google', {scope: ['profile']}))
+routes.get('/google/callback', passport.authenticate('google', {failureRedirect: '/'}), c.authenticatedWelcomeRoute)
 
 module.exports = routes

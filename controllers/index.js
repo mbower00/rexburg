@@ -312,6 +312,9 @@ const deleteRestaurantRoute = async (req, res) => {
     await client.close()
 }
 
+const authenticatedWelcomeRoute = (req, res) => {
+    res.send('Authenticated, Welcome!')
+}
 
 module.exports = {
     getAllRoute,
@@ -325,4 +328,5 @@ module.exports = {
     putRestaurantRoute,
     deleteParkRoute,
     deleteRestaurantRoute,
+    authenticatedWelcomeRoute
 }
