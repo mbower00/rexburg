@@ -8,12 +8,14 @@ const express = require("express")
 const app = express()
 const portNum = 3000
 
-require('./passport.js')(passport)
 
 // used code from https://www.coderrocketfuel.com/article/store-mongodb-credentials-as-environment-variables-in-nodejs
 require("dotenv").config()
 // used code from https://nordicapis.com/building-a-restful-api-using-node-js-and-mongodb/
 const bp = require("body-parser")
+
+require('./passport.js')(passport)
+
 app.use(bp.json())
 
 app.use(session({
