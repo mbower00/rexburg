@@ -34,4 +34,7 @@ const swag = require("../swagger.json")
 routes.use('/api-docs', su.serve)
 routes.get('/api-docs', su.setup(swag))
 
+// used code from https://www.youtube.com/watch?v=SBvmnHTQIPY
+routes.get('/google', c.authentication)
+
 module.exports = routes
