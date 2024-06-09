@@ -1,5 +1,5 @@
-// used code from https://www.youtube.com/watch?v=SBvmnHTQIPY
-
+// used code from: https://www.youtube.com/watch?v=SBvmnHTQIPY 
+ 
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const mongoose = require('mongoose')
 const User = require('./models/User.js')
