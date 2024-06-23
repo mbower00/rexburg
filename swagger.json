@@ -31,36 +31,6 @@
         }
       }
     },
-    "/auth/google": {
-      "get": {
-        "description": "Logs a user in with Google",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/auth/google/callback": {
-      "get": {
-        "description": "There is not a need for the user to call this directly. They should use /auth/google to log in.",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/auth/logout": {
-      "get": {
-        "description": "Logs out a user",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/all": {
       "get": {
         "description": "Gets the values for the parks and restaurants collections",

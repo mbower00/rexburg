@@ -44,9 +44,6 @@ passport = require('passport')
 routes.get('/authenticated', ensureAuth, c.authenticatedWelcomeRoute)
 routes.get('/auth/google', passport.authenticate('google', {scope: ['profile']}))
 routes.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/'}), (req, res) => {res.redirect('/authenticated')})
-routes.get('/auth/logout', ensureAuth, (req, res) => {
-    req.logout()
-    res.redirect('/auth/google')
-})
+
 
 module.exports = routes
