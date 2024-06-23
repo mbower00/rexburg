@@ -320,6 +320,17 @@ const welcomeUnauthRoute = (req, res) => {
     res.send('Welcome to rexburg api. You are <strong>not</strong> logged in! Please visit: <a href="/auth/google">/auth/google</a>')
 }
 
+// used code from comment by on @abdulsamadgomda4387 on youtube video https://www.youtube.com/watch?v=SBvmnHTQIPY
+const logoutRoute = (req, res) => {
+    req.logout((err)=>{
+        if (err) {
+            console.log(err)
+            res.status(500).send('There was an error with /auth/logout')
+        }
+        res.redirect('/')
+    })
+}
+
 module.exports = {
     getAllRoute,
     getAllParksRoute,
@@ -333,5 +344,6 @@ module.exports = {
     deleteParkRoute,
     deleteRestaurantRoute,
     authenticatedWelcomeRoute,
-    welcomeUnauthRoute
+    welcomeUnauthRoute,
+    logoutRoute
 }
