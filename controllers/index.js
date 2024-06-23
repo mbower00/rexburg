@@ -313,7 +313,11 @@ const deleteRestaurantRoute = async (req, res) => {
 }
 
 const authenticatedWelcomeRoute = (req, res) => {
-    res.send('Authenticated, Welcome!')
+    res.send(`Authenticated, Welcome! Please visit <a href="./api-docs">/api-docs</a> to make various requests`)
+}
+
+const welcomeUnauthRoute = (req, res) => {
+    res.send('Welcome to rexburg api. You are <strong>not</strong> logged in! Please visit: <a href="/auth/google">/auth/google</a>')
 }
 
 module.exports = {
@@ -328,5 +332,6 @@ module.exports = {
     putRestaurantRoute,
     deleteParkRoute,
     deleteRestaurantRoute,
-    authenticatedWelcomeRoute
+    authenticatedWelcomeRoute,
+    welcomeUnauthRoute
 }

@@ -4,13 +4,20 @@
 const passport = require('passport')
 const session = require('express-session')
 
+// used code from https://www.coderrocketfuel.com/article/store-mongodb-credentials-as-environment-variables-in-nodejs
+require("dotenv").config()
+
+const connectDB = require('./db.js')
+connectDB()
+
 const express = require("express")
 const app = express()
 const portNum = 3000
 
+// const exphbs = require('express-handlebars')
+// app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}))
+// app.set('view engine', '.hbs')
 
-// used code from https://www.coderrocketfuel.com/article/store-mongodb-credentials-as-environment-variables-in-nodejs
-require("dotenv").config()
 // used code from https://nordicapis.com/building-a-restful-api-using-node-js-and-mongodb/
 const bp = require("body-parser")
 

@@ -1,42 +1,52 @@
 // used code from https://www.youtube.com/watch?v=K00J87SofEc
 // used code from https://stackoverflow.com/questions/34095126/express-router-id
 // used code from https://nordicapis.com/building-a-restful-api-using-node-js-and-mongodb/
+// used code from https://www.youtube.com/watch?v=SBvmnHTQIPY
 
+const {ensureAuth, ensureGuest} = require('../middleware/auth.js')
 const routes = require("express").Router()
 const c = require("../controllers/index.js")
 
-routes.get('/', c.getAllRoute)
+routes.get('/', ensureGuest, c.welcomeUnauthRoute)
+
+routes.get('/all', ensureAuth, c.getAllRoute)
 
 // get all of collection
-routes.get('/parks', c.getAllParksRoute)
-routes.get('/restaurants', c.getAllRestaurantsRoute)
+routes.get('/parks', ensureAuth, c.getAllParksRoute)
+routes.get('/restaurants', ensureAuth, c.getAllRestaurantsRoute)
 
 // get single from collection
-routes.get('/parks/:id', c.getParkRoute)
-routes.get('/restaurants/:id', c.getRestaurantRoute)
+routes.get('/parks/:id', ensureAuth, c.getParkRoute)
+routes.get('/restaurants/:id', ensureAuth, c.getRestaurantRoute)
 
 // post
-routes.post('/post-park', c.postParkRoute)
-routes.post('/post-restaurant', c.postResaurantRoute)
+routes.post('/post-park', ensureAuth, c.postParkRoute)
+routes.post('/post-restaurant', ensureAuth, c.postResaurantRoute)
 
 // put
-routes.put('/put-park/:id', c.putParkRoute)
-routes.put('/put-restaurant/:id', c.putRestaurantRoute)
+routes.put('/put-park/:id', ensureAuth, c.putParkRoute)
+routes.put('/put-restaurant/:id', ensureAuth, c.putRestaurantRoute)
 
 // delete
-routes.delete('/delete-park/:id', c.deleteParkRoute)
-routes.delete('/delete-restaurant/:id', c.deleteRestaurantRoute)
+routes.delete('/delete-park/:id', ensureAuth, c.deleteParkRoute)
+routes.delete('/delete-restaurant/:id', ensureAuth, c.deleteRestaurantRoute)
 
 // documentation
 // used code from https://www.npmjs.com/package/swagger-ui-express
 const su = require("swagger-ui-express")
 const swag = require("../swagger.json")
-routes.use('/api-docs', su.serve)
-routes.get('/api-docs', su.setup(swag))
+routes.use('/api-docs', ensureAuth, su.serve)
+routes.get('/api-docs', ensureAuth, su.setup(swag))
 
 // used code from https://www.youtube.com/watch?v=SBvmnHTQIPY
+// auth
 passport = require('passport')
+routes.get('/authenticated', ensureAuth, c.authenticatedWelcomeRoute)
 routes.get('/auth/google', passport.authenticate('google', {scope: ['profile']}))
-routes.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/'}), c.authenticatedWelcomeRoute)
+routes.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/'}), (req, res) => {res.redirect('/authenticated')})
+routes.get('/auth/logout', ensureAuth, (req, res) => {
+    req.logout()
+    res.redirect('/auth/google')
+})
 
 module.exports = routes
