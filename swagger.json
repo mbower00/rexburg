@@ -51,6 +51,16 @@
         }
       }
     },
+    "/auth/logout": {
+      "get": {
+        "description": "logs out a user",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/all": {
       "get": {
         "description": "Gets the values for the parks and restaurants collections",
