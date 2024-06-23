@@ -46,7 +46,12 @@ routes.get('/auth/google', passport.authenticate('google', {scope: ['profile']})
 routes.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/'}), (req, res) => {res.redirect('/authenticated')})
 // used code from comment by on @abdulsamadgomda4387 on youtube video https://www.youtube.com/watch?v=SBvmnHTQIPY
 routes.get('/auth/logout', ensureAuth, (req, res) => {
-    req.logout((err)=>{res.redirect('/')})
+    req.logout((err)=>{
+        if (err) {
+            console.log(err)
+        }
+        res.redirect('/')
+    })
 })
 
 module.exports = routes
